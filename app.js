@@ -13,7 +13,9 @@ var express             = require("express"),
 
     const port = 3000
     
-   
+   //requiring routes
+    var adminRoutes    = require("./routes/admin");
+
     //middleware req
   
 
@@ -45,62 +47,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-
-//============================
-//AUTH Routes
-//============================
-
-app.get("/", function(req, res) {
-    res.send("homepage");
-});
-
-app.get("/register", function(req, res) {
-    res.render("register");
-});
-
-app.post("/register", function(req, res){
-    var newUser = new User({username:req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
-        if(err){
-            console.log(user); 
-            return res.redirect("back"); 
-        }
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/");
-        });
-    }); 
-}); 
-
-app.get("/login", function(req, res) {
-    res.render("login");
-});
-
-//handling login logic
-app.post("/login", passport.authenticate("local", 
-    {
-        successRedirect: "/",
-        failureRedirect: "/login"
-    }));
-
-
-app.get("/admin", require('permission')(['admin']), function(req, res, next) {
-  // Redirect Unauthenticated users.
-  
-  if (req.isAuthenticated()) {
-      res.render("admin");
-
-  }else{
-      res.send("not Authenticated ");
-  }
- 
-});
-
-app.get("/logout", function(req, res) {
-  req.logout();
-  res.redirect("/login");
-});
-
-
-
+app.use("/", adminRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
