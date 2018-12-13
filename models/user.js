@@ -9,3 +9,5 @@ var passportLocalMongoose = require("passport-local-mongoose");
   
 UserSchema.plugin(passportLocalMongoose); 
 module.exports = mongoose.model('User', UserSchema);
+
+///test git
