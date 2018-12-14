@@ -60,6 +60,27 @@ router.get("/logout", function(req, res) {
   res.redirect("/login");
 });
 
+router.get("/inventory", require('permission')(['admin']), function(req, res, next) {
+    // Redirect Unauthenticated users.
+    
+    if (req.isAuthenticated()) {
+        res.render("inventory");
+  
+    }else{
+        res.send("not Authenticated ");
+    }
+});
+
+router.get("/posts", require('permission')(['admin']), function(req, res, next) {
+    // Redirect Unauthenticated users.
+    
+    if (req.isAuthenticated()) {
+        res.render("posts");
+  
+    }else{
+        res.send("not Authenticated ");
+    }
+});
 
  
  module.exports = router;
