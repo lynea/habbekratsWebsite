@@ -50,7 +50,7 @@ router.get("/admin", require('permission')(['admin']), function(req, res, next) 
       res.render("admin");
 
   }else{
-      res.send("not Authenticated ");
+      res.redirect("/login ");
   }
  
 });

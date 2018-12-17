@@ -47,6 +47,14 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
+//redirect to login when admin is not loggedin
+var notAuthenticated = {
+  redirect: '/login'
+};
+
+app.set('permission', {
+  notAuthenticated: notAuthenticated 
+});
 app.use("/", adminRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
