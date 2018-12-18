@@ -1,30 +1,76 @@
-<% include ./partials/header %> 
-<link rel="stylesheet" href="./stylesheets/adminPage.css">
-
+<% include ./partials/admin-Header %> 
 
 <div class="container">
-    <span  id="Company-name">
-        <h1>De habbekrats putten</h1>
-       
-        <h3><span id="italic-subtitle"> Gewoon </span> thuiskomen</h3>
-    </span>
-    <hr>
+    <div class="row">
+        <div class="col-sm-4 pull-right">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="row justify-content-center"></div>
+<div class="overlay ">
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h3 class="form-title">New post</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body login-field">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="new-post-form" action="/posts" method="POST" role="form" style="display: block;">
+                                        <div class="form-group " >
+                                        <label for="title">Title:</label>
+                                        <input type="text" name="title" id="title" tabindex="2" class="form-control input-shadow"  >
+                                    </div>
+                                        <div class="form-group">
+                                            <label for="summary">inleiding:</label>
+                                            <textarea class="form-control input-shadow" rows="4" id="comment"></textarea>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="summary">inleiding:</label>
+                                            <textarea class="form-control input-shadow" rows="5" id="comment"></textarea>
+                                        </div>
+                                     
+                                        <div class="form-group ">
+                                            <div class="row">
+                                                <div class="col-sm-6 ">
+                                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-Done" value="Done">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
 
-<div class="container">
-    <h1>post page</h1>
+
+<div class="col-sm-1 pull-right" id="Update_Destroy_Btn_Container">
+    <a href="/"> <button type="button" class="btn  btn-circle-sm"><i class="fas fa-trash-alt"></i></button></a>
+    <a href="/"> <button type="button" class="btn  btn-circle-sm"><i class="fas fa-plus"></i></button></a>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <% include ./partials/admin-sideBar %>
 <% include ./partials/footer %> 

@@ -11,7 +11,7 @@ var User = require("../models/user");
 //============================
 
 router.get("/", function(req, res) {
-    res.send("homepage");
+    res.render("landing");
 });
 
 router.get("/register", function(req, res) {

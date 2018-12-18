@@ -109,3 +109,26 @@
 #login-submit{
     padding-bottom: 8px;
 }
+
+.btn-Done {
+	background-color: #EE5959;
+	outline: none;
+	color: #fff;
+	font-size: 25px;
+	height: 40px;
+	font-weight: normal;
+    border-color: #EE5959;
+	width:90px;
+	padding-bottom: 40px!important;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #EE5959;
+	border-color: #EE5959;
+
+}
+
+#post-title{
+	margin-bottom: 20px;
+}
