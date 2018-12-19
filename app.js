@@ -9,7 +9,21 @@ var express             = require("express"),
     methodOverride      = require("method-override"),
     User                = require("./models/user"),
     cookieParser        = require('cookie-parser'),
-    session             = require("express-session");
+    session             = require("express-session"),
+    multer              = require('multer'),
+   
+     storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, 'public/uploads/posts')
+      },
+      filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now())
+      }
+    }),
+     
+    upload = multer({ storage: storage });
+  
+   
 
     const port = 3000
     

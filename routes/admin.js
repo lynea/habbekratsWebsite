@@ -2,8 +2,19 @@ var express = require("express");
 var passport = require("passport");
 var router  = express.Router();
 var User = require("../models/user");
+var multer  = require('multer');
 var Post = require("../models/postModel"); 
 
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/uploads/posts')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  });
+   
+  var upload = multer({ storage: storage });
 
  
 
@@ -87,14 +98,14 @@ router.route('/posts')
         res.send("not Authenticated ");
     }
 })
-.post(function(req, res){
+.post(upload.single('image'),function(req, res){
     var title = req.body.title;
-    var image = req.body.image;
+    var imagePath = "uploads/posts/"+ req.file.filename; 
     var summary = req.body.summary; 
     var body = req.body.body;
    
-    var newPost = {title: title, image: image, summary: summary, body:body}
-    console.log(newPost); 
+    var newPost = {title: title, imagePath: imagePath, summary: summary, body:body}
+    console.log(newPost);
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){
         if(err){
