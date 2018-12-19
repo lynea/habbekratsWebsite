@@ -4,6 +4,9 @@
     margin-top: 100px; 
 
 }
+label{
+	font-weight: 400 !important;
+}
 .panel-login>.panel-heading {
 	color: #00415d;
 	
@@ -11,6 +14,10 @@
 }
 .form-title{
     font-size: 30px;
+}
+.panel-heading .form-title{
+	font-weight: 550;
+	color:#030146;
 }
 .login-field{
     padding-top: 0px;
@@ -73,44 +80,14 @@
 	background-color: #EE5959;
 	border-color: #EE5959;
 }
-.forgot-password {
-	text-decoration: underline;
-	color: #888;
-}
-.forgot-password:hover,
-.forgot-password:focus {
-	text-decoration: underline;
-	color: #666;
-}
-
-.btn-register {
-	background-color: #1CB94E;
-	outline: none;
-	color: #fff;
-	font-size: 14px;
-	height: auto;
-	font-weight: normal;
-	padding: 14px 0;
-	text-transform: uppercase;
-	border-color: #1CB94A;
-}
-.btn-register:hover,
-.btn-register:focus {
-	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
-}
 
 .input-shadow{
     -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
     -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
 }
-#login-submit{
-    padding-bottom: 8px;
-}
 
-.btn-Done {
+.col-sm-6 .btn-Done {
 	background-color: #EE5959;
 	outline: none;
 	color: #fff;
@@ -118,7 +95,8 @@
 	height: 40px;
 	font-weight: normal;
     border-color: #EE5959;
-	width:90px;
+	width:150px;
+	margin-top:20px; 
 	padding-bottom: 40px!important;
 }
 .btn-login:hover,
@@ -131,4 +109,35 @@
 
 #post-title{
 	margin-bottom: 20px;
+}
+
+
+/* Upload Btn */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+}
+
+.upload_Btn input[type=text]{
+	height:34px;
+	font-size: 14px;
 }

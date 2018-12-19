@@ -10,15 +10,18 @@ Nieuw binnen: Boolean
 
 Best verkocht: Boolean
 
-conditie: Number (gebruikt 0 / nieuw 1)
+conditie: Bool (gebruikt 0 / nieuw 1)
 
-kleuren: String
-[empty arr]
-Materiaal: string 
-[empty arr]
+kleuren:Bool {
+	rood:True	
+	blauw:True
+}
+
+Materiaal: bool
+
 	
-Afmeting: :String
-[empty arr]
+Afmeting: :bool
+
 
 	-afbeeldingen:{
 		main:String
@@ -26,8 +29,7 @@ Afmeting: :String
 			[empty arr]
 		}
 
-postCategory:String
-
+post:String; 
 
 
 
