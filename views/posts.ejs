@@ -16,34 +16,39 @@
             </div>
         </div>
     </div>
+    <hr>
 </div>
 
 
 
-<div class="container">
-    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+<div class="container post-cards-container">
+    
         <% posts.forEach(function(post){ %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                   <img src="<%= post.imagePath %>">
-                   <div class="caption">
-                       <h4><%= post.title %></h4>
-                   </div>
-                   <p>
-                       <a href="/posts/<%= post._id %>" class="btn btn-primary">More Info</a>
-                   </p>
+            <div class="col-md-4 card-colums">
+                <div class="card-container">
+                    <figure class="img-container">
+                        <img src="<%= post.imagePath %>" width="242" height="363" class="cover" />
+                    </figure>
+                    <div class="text-post-card">
+                        <div class="post-card-title">
+                        <h3><%= post.title %></h3>
+                        
+                    </div>
+                        <p>gepubliceert op:<%= post.creationDate %></p>
+                    </div>
+                    <div class="post-card-btn-container">
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-edit"></i>
+                    </div>
                 </div>
             </div>
+            
         <% }); %>
-    </div>
-</div>
+   
 
 
-
-
-
-
-
+              
+                
 
 <div class="overlay">
         <div class="row">

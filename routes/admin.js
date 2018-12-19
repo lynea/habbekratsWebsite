@@ -103,8 +103,10 @@ router.route('/posts')
     var imagePath = "uploads/posts/"+ req.file.filename; 
     var summary = req.body.summary; 
     var body = req.body.body;
-   
-    var newPost = {title: title, imagePath: imagePath, summary: summary, body:body}
+    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    var creationDate = new Date().toLocaleDateString("nl-NL")
+
+    var newPost = {title: title, imagePath: imagePath, summary: summary, body:body, creationDate:creationDate}
     console.log(newPost);
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){

@@ -1,0 +1,77 @@
+
+.upload_Form_Wrapper{
+    background: white;
+    padding: 20px;
+    margin:0 auto; 
+    }
+    
+    
+    
+    .card-container{
+        -webkit-box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+        -moz-box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+        box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+        height:130px;
+        padding-right:0px!important; 
+        border-radius: 25px;
+        
+    }
+    
+    .card-colums{
+        
+        padding-right:0px!important; 
+        margin-bottom:25px; 
+    }
+    
+    .img-container{
+        width: 30%;
+        float: left;
+        border-radius: 35px 0px 0px 0px;
+    }
+    .text-post-card{
+        width: 60%;
+        float: left;
+        text-align: center
+    }
+    
+    .text-post-card h3{
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+    
+    .post-card-title{
+        height:80px;
+    }
+    .post-cards-container{
+        margin-top: 25px; 
+    }
+    .cover {
+        object-fit: cover;
+        width: 100%;
+        height: 130px;
+        border-radius: 10px 0px 0px 10px;
+        -webkit-box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.3);
+        -moz-box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.3);
+        box-shadow: 5px 0px 6px 0px rgba(0,0,0,0.3);
+      }
+    
+      .post-card-btn-container{
+          width: 10%;
+          height: 100%;
+          background-color: #030146;
+          float: left;
+          font-size: 18px; 
+          text-align: center;
+          border-radius: 0px 10px 10px 0px;
+          color: white;
+          -webkit-box-shadow: -9px 0px 6px -5px rgba(0,0,0,0.3);
+            -moz-box-shadow: -9px 0px 6px -5px rgba(0,0,0,0.3);
+            box-shadow: -9px 0px 6px -5px rgba(0,0,0,0.3);
+      }
+      
+    
+      .post-card-btn-container .fas{
+        margin-top: 30px;
+      }
+    
+    

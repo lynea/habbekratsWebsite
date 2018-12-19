@@ -1,10 +1,6 @@
 body{font-family: 'Open Sans', sans-serif;}
 
-@media (min-width: 1200px){
-.container {
-    width: 950px!important;
-}
-}
+
 
 
 h6{
@@ -15,15 +11,17 @@ h6{
 
 #Company-name h3{
   margin-top: 0px!important;
-  color: #EE5959
+  color: #EE5959;
+  font-size: 30px;
 }
 
 #Company-name h1{
   margin-bottom: 0px!important;
   color: #030146;
-  font-weight: bolder
-
+  font-weight: bolder;
+  font-size: 50px;
 }
+
 #italic-subtitle{
   font-style: italic;
 }
