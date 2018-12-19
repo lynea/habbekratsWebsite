@@ -2,6 +2,7 @@ var express = require("express");
 var passport = require("passport");
 var router  = express.Router();
 var User = require("../models/user");
+var Post = require("../models/postModel"); 
 
 
  
@@ -33,10 +34,8 @@ router.post("/register", function(req, res){
 
 router.get("/login", function(req, res) {
     res.render("login");
-});
-
-//handling login logic
-router.post("/login", passport.authenticate("local", 
+})
+.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/admin",
         failureRedirect: "/login"
@@ -71,15 +70,41 @@ router.get("/inventory", require('permission')(['admin']), function(req, res, ne
     }
 });
 
-router.get("/posts", require('permission')(['admin']), function(req, res, next) {
+router.route('/posts')
+.get(require('permission')(['admin']), function(req, res, next) {
     // Redirect Unauthenticated users.
     
     if (req.isAuthenticated()) {
-        res.render("posts");
-  
+        // Get all posts from DB
+        Post.find({}, function(err, allPosts){
+            if(err){
+                console.log(err);
+            } else {
+               res.render("posts",{posts:allPosts});
+            }
+         });
     }else{
         res.send("not Authenticated ");
     }
+})
+.post(function(req, res){
+    var title = req.body.title;
+    var image = req.body.image;
+    var summary = req.body.summary; 
+    var body = req.body.body;
+   
+    var newPost = {title: title, image: image, summary: summary, body:body}
+    console.log(newPost); 
+    // Create a new post and save to DB
+    Post.create(newPost, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        } else {
+            //redirect back to campgrounds page
+            console.log(newlyCreated);
+            res.redirect("/posts");
+        }
+    });
 });
 
  

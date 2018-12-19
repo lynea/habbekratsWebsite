@@ -1,4 +1,5 @@
 <% include ./partials/admin-Header %> 
+<script src="./scripts/posts.js"></script>
 
 <div class="container">
     <div class="row">
@@ -16,8 +17,35 @@
         </div>
     </div>
 </div>
-<div class="row justify-content-center"></div>
-<div class="overlay ">
+
+
+
+<div class="container">
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% posts.forEach(function(post){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= post.image %>">
+                   <div class="caption">
+                       <h4><%= post.title %></h4>
+                   </div>
+                   <p>
+                       <a href="/posts/<%= post._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="overlay">
         <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-login">
@@ -25,6 +53,9 @@
                             <div class="row">
                                 <div class="col-xs-6">
                                     <h3 class="form-title">Nieuwe post</h3>
+                                </div>
+                                <div class="col-sm-1 pull-right">
+                                    <i class="far fa-times-circle"></i>
                                 </div>
                             </div>
                         </div>
@@ -38,11 +69,11 @@
                                     </div>
                                         <div class="form-group">
                                             <label for="summary">Inleiding:</label>
-                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="comment"></textarea>
+                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="summary"></textarea>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="summary">Text:</label>
-                                            <textarea class="form-control input-shadow" rows="5" tabindex="3" id="comment"></textarea>
+                                            <label for="text">Text:</label>
+                                            <textarea class="form-control input-shadow" rows="5" tabindex="3" id="text" name="body"></textarea>
                                         </div>
                                         <div class="col-md-6 upload_Btn">
                                             <div class="form-group">
@@ -50,7 +81,7 @@
                                                 <div class="input-group">
                                                     <span class="input-group-btn">
                                                         <span class="btn btn-default btn-file">
-                                                            Browse… <input type="file" tabindex="4" id="imgInp">
+                                                            Browse… <input type="file" tabindex="4" id="imgInp" name="image">
                                                         </span>
                                                     </span>
                                                     <input type="text" class="form-control" readonly>
@@ -80,8 +111,8 @@
 
 
 <div class="col-sm-1 pull-right" id="Update_Destroy_Btn_Container">
-    <a href="/"> <button type="button" class="btn  btn-circle-sm"><i class="fas fa-trash-alt"></i></button></a>
-    <a href="/"> <button type="button" class="btn  btn-circle-sm"><i class="fas fa-plus"></i></button></a>
+    <a href="/"> <button type="button" class="btn  btn-circle-sm" id="delete-Post_Btn"><i class="fas fa-trash-alt"></i></button></a>
+    <a href="#"> <button type="button" class="btn  btn-circle-sm" id="add-Post_Btn"><i class="fas fa-plus"></i></button></a>
 </div>
 
 <% include ./partials/admin-sideBar %>
