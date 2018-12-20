@@ -25,24 +25,25 @@
     
         <% posts.forEach(function(post){ %>
             <div class="col-md-4 card-colums">
-                <div class="card-container">
+                <div class="card-container" >
                     <figure class="img-container">
                         <img src="<%= post.imagePath %>" width="242" height="363" class="cover" />
                     </figure>
                     <div class="text-post-card">
                         <div class="post-card-title">
-                        <h3><%= post.title %></h3>
+                        <a href="/posts/<%= post._id %>"><h3><%= post.title %></h3></a>
                         
                     </div>
                         <p>gepubliceert op:<%= post.creationDate %></p>
                     </div>
                     <div class="post-card-btn-container">
-                        <i class="fas fa-trash-alt"></i>
+                    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                        <button><i class="fas fa-trash-alt"></i></button>
+                       </form>
                         <i class="fas fa-edit"></i>
                     </div>
                 </div>
-            </div>
-            
+            </div>       
         <% }); %>
    
 

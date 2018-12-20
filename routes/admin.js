@@ -4,7 +4,7 @@ var router  = express.Router();
 var User = require("../models/user");
 var multer  = require('multer');
 var Post = require("../models/postModel"); 
-
+var fs = require('fs');
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/uploads/posts')
@@ -98,27 +98,48 @@ router.route('/posts')
         res.send("not Authenticated ");
     }
 })
-.post(upload.single('image'),function(req, res){
+.post(upload.single('image'),function(req, res){ 
     var title = req.body.title;
     var imagePath = "uploads/posts/"+ req.file.filename; 
     var summary = req.body.summary; 
     var body = req.body.body;
-    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    var creationDate = new Date().toLocaleDateString("nl-NL")
-
+    var creationDate = new Date().toLocaleDateString("nl-NL");
     var newPost = {title: title, imagePath: imagePath, summary: summary, body:body, creationDate:creationDate}
-    console.log(newPost);
+    // console.log(newPost);
     // Create a new post and save to DB
     Post.create(newPost, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
             //redirect back to campgrounds page
-            console.log(newlyCreated);
+            // console.log(newlyCreated);
             res.redirect("/posts");
         }
     });
 });
+
+
+
+router.delete("/posts/:id", function(req, res){
+    Post.findById(req.params.id, function (err, newPost) {
+        var path = "public/"+ newPost.imagePath; 
+        try{ fs.unlinkSync(path)
+            //file removed
+          } catch(err) {
+            console.error(err)
+          }
+    }), 
+    Post.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            res.redirect("back");
+        }else{
+            res.redirect("/posts");
+        }
+    })
+});
+
+
+
 
  
  module.exports = router;

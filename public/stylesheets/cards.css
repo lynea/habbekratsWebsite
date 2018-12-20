@@ -38,6 +38,13 @@
         margin-bottom: 5px;
         font-size: 20px;
     }
+    .text-post-card a{
+       color: #030146
+    }
+    .text-post-card a:hover{
+       color: #EE5959;
+       text-decoration: none;
+    }
     
     .post-card-title{
         height:80px;
@@ -74,4 +81,13 @@
         margin-top: 30px;
       }
     
+      .post-card-btn-container a{
+        color: white; 
+      }
+
+      .post-card-btn-container a:hover{
+        color:#EE5959; 
+      }
+
+
     
