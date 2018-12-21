@@ -76,16 +76,18 @@
             box-shadow: -9px 0px 6px -5px rgba(0,0,0,0.3);
       }
       
+      .post-card-btn-container button{
+        background: none;
+        border: none;
+    }
     
       .post-card-btn-container .fas{
         margin-top: 30px;
       }
     
-      .post-card-btn-container a{
-        color: white; 
-      }
+      
 
-      .post-card-btn-container a:hover{
+      .post-card-btn-container button:hover{
         color:#EE5959; 
       }
 

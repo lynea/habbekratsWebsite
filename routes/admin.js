@@ -119,8 +119,8 @@ router.route('/posts')
 });
 
 
-
-router.delete("/posts/:id", function(req, res){
+router.route('/posts/:id')
+.delete(function(req, res){
     Post.findById(req.params.id, function (err, newPost) {
         var path = "public/"+ newPost.imagePath; 
         try{ fs.unlinkSync(path)
@@ -136,6 +136,24 @@ router.delete("/posts/:id", function(req, res){
             res.redirect("/posts");
         }
     })
+})
+router.get("/posts/:id/edit" , function(req, res){
+    Post.findById(req.params.id, function(err, foundPost){
+        res.render("editPost", {post: foundPost});
+    });
+}); 
+
+router.put("/posts/:id", function(req, res){
+    // find and update the correct campground
+  
+    Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
+       if(err){
+           res.redirect("/admin");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/posts");
+       }
+    });
 });
 
 

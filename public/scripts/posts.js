@@ -1,7 +1,8 @@
 window.onload=function(){
 var newPostBtn = document.getElementById("add-Post_Btn"); 
-var overlay= document.querySelector(".overlay");0
+var overlay= document.querySelector(".overlay");
 var closeBtn = document.querySelector(".fa-times-circle"); 
+var editBtn = document.querySelectorAll(".fa-edit");
 
 
 
@@ -14,8 +15,4 @@ closeBtn.addEventListener("click", function(){
 });
 
 
-
-
-
-
-  }
+}

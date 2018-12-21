@@ -1,0 +1,71 @@
+<% include ./partials/admin-Header %> 
+
+<script src="/scripts/image_upload_btn.js"></script>
+
+<div class="edit-overlay">
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h3 class="form-title">Edit post</h3>
+                                </div>
+                                <div class="col-sm-1 pull-right">
+                                    <i class="far fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body login-field">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="new-post-form" action="/posts/<%= post._id %>?_method=PUT" method="POST" role="form" style="display: block;">
+                                        <div class="form-group " >
+                                        <label for="title">Titel:</label>
+                                        <input type="text" name="post[title]" id="title" tabindex="1" value="<%=post.title%>" class="form-control input-shadow"  >
+                                    </div>
+                                        <div class="form-group">
+                                            <label for="summary">Inleiding:</label>
+                                            <textarea class="form-control input-shadow" rows="4" tabindex="2"  id="summary" name="post[summary]" ><%=post.summary%></textarea>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="text">Text:</label>
+                                            <textarea class="form-control input-shadow" rows="5" tabindex="3"  id="text" name="post[body]"><%=post.body%></textarea>
+                                        </div>
+                                        <!-- <div class="col-md-6 upload_Btn">
+                                            <div class="form-group">
+                                                <label>Upload Image</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <span class="btn btn-default btn-file">
+                                                            Browse… <input type="file" tabindex="4" id="imgInp" name="image">
+                                                        </span>
+                                                    </span>
+                                                    <input type="text" class="form-control" readonly>
+                                                </div>
+                                                <img id='img-upload'/>
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group ">
+                                            <div class="row">
+                                                <div class="col-sm-6 justify-content-center  ">
+                                                    <input type="submit" name="edit_Post"  tabindex="5" class="form-control btn btn-Done " value="Done">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+<% include ./partials/admin-sideBar %>
+<% include ./partials/footer %> 
