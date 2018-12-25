@@ -2,6 +2,7 @@ var express = require("express");
 var passport = require("passport");
 var router  = express.Router();
 var User = require("../models/user");
+var Product = require("../models/product");
 var multer  = require('multer');
 var Post = require("../models/postModel"); 
 var fs = require('fs');
@@ -70,16 +71,94 @@ router.get("/logout", function(req, res) {
   res.redirect("/login");
 });
 
-router.get("/inventory", require('permission')(['admin']), function(req, res, next) {
+router.route('/inventory')
+.get(require('permission')(['admin']), function(req, res, next) {
     // Redirect Unauthenticated users.
     
     if (req.isAuthenticated()) {
-        res.render("inventory");
-  
+        // Get all posts from DB
+        Product.find({}, function(err, allProducts){
+            if(err){
+                console.log(err);
+            } else {
+               res.render("inventory",{products:allProducts});
+            }
+         });
     }else{
         res.send("not Authenticated ");
     }
+})
+
+.post(function(req, res){ 
+    var usedFurn = Boolean(req.body.used); 
+    var newFurn = Boolean(req.body.new); 
+    var name = req.body.name; 
+    var bestSeller = Boolean(req.body.bestSeller); 
+    var newArrival = Boolean(req.body.newArrival); 
+    var description = req.body.description; 
+
+    var red = Boolean(req.body.red); 
+    var blue = Boolean(req.body.blue); 
+    var yellow = Boolean(req.body.yellow); 
+    var green = Boolean(req.body.green); 
+
+    var fabric = Boolean(req.body.fabric); 
+    var leather = Boolean(req.body.leather); 
+    var sixtyPercent = Boolean(req.body.sixtyPercent); 
+    var seventyPercent = Boolean(req.body.seventyPercent); 
+
+    var twoSeater = Boolean(req.body.twoSeater); 
+    var twoHalfSeater = Boolean(req.body.twoHalfSeater); 
+    var threeSeater = Boolean(req.body.threeSeater); 
+    var cornerCouch = Boolean(req.body.cornerCouch); 
+
+
+    
+
+ 
+  
+    var newProduct = {
+        name:name,
+        description:description, 
+        newArrival:newArrival, 
+        bestSeller:bestSeller,
+        usedFurn:usedFurn,
+        newFurn:newFurn,
+        colors:{
+            red:red,
+            blue:blue,
+            yellow:yellow, 
+            green:green, 
+        }, 
+        materials:{
+            fabric: fabric,
+            leather: leather,
+            sixtyPercent: sixtyPercent,
+            seventyPercent: seventyPercent,
+        },
+        sizes:{
+            twoSeater:twoSeater, 
+            twoHalfSeater:twoHalfSeater,
+            threeSeater:threeSeater,
+            cornerCouch:cornerCouch,
+        }   
+
+    }
+   
+    // Create a new post and save to DB
+    Product.create(newProduct, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        } else {
+            //redirect back to campgrounds page
+            console.log(newlyCreated);
+            res.redirect("/inventory");
+        }
+    });
 });
+
+
+
 
 router.route('/posts')
 .get(require('permission')(['admin']), function(req, res, next) {
@@ -144,7 +223,8 @@ router.get("/posts/:id/edit" , function(req, res){
 }); 
 
 router.put("/posts/:id", function(req, res){
-    // find and update the correct campground
+    // find and update the correct post
+    // not working for image yet 
   
     Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost){
        if(err){

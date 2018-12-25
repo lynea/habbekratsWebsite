@@ -87,8 +87,11 @@
     
       
 
-      .post-card-btn-container button:hover{
+      .post-card-btn-container a:hover{
         color:#EE5959; 
+      }
+      .post-card-btn-container a{
+        color:white; 
       }
 
 

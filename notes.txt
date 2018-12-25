@@ -53,15 +53,21 @@ Best verkocht: True
 conditie:1
 
 kleuren: [Zwart, rood, geel. Blauw]
-Materiaal: string 
-[Stof, leer, lederlook, 60%, 70%]
+Materiaal: Boolean 
+{Stof,
+leer: False, 
+lederlook:False,
+60%:False,
+70%:False, 
+}
+
 	
 Afmeting: :String
 [2zits, 3zits, 4zits, hoekbank]
 
 	-afbeeldingen:{
-		main:String
-		extra: String
+		mainImagePath:String
+		extraImagePath: String
 			[empty arr]
 		}
 

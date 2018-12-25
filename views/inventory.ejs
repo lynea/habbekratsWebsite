@@ -1,15 +1,128 @@
-<% include ./partials/header %> 
-<link rel="stylesheet" href="./stylesheets/adminPage.css">
+<% include ./partials/admin-Header %> 
+<script src="./scripts/posts.js"></script>
 
 
 <div class="container">
-    <span  id="Company-name">
-        <h1>De habbekrats putten</h1>
-       
-        <h3><span id="italic-subtitle"> Gewoon </span> thuiskomen</h3>
-    </span>
+    <div class="row">
+        <div class="col-sm-4 pull-right">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     <hr>
 </div>
+
+
+
+
+
+              
+                
+
+<div class="overlay">
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-login">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h3 class="form-title">Product toevoegen</h3>
+                                </div>
+                                <div class="col-sm-1 pull-right close-btn">
+                                    <i class="far fa-times-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body login-field">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form id="new-post-form" action="/inventory" method="POST" role="form" style="display: block;" >
+                                        <div class="form-group " >
+                                      
+                                        <input type="text" name="name" id="title" tabindex="1" class="form-control input-shadow" placeholder="Naam of Code"  >
+                                    </div>
+                                        
+                                    <div class="form-group">
+                                            <label for="description">Description:</label>
+                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="description"></textarea>
+                                        </div>
+                                        <div class="form-group ">
+                                                conditie:
+                                                <input type="checkbox" name="new" /> Nieuw     
+                                                <input type="checkbox" name="used" /> Gebruikt     
+                                           
+                                        </div>
+                                    
+                                    <div class="form-group ">
+                                        <h3>kleuren:</h3>
+                                        <input type="checkbox" name="red" /> rood
+                                        <input type="checkbox" name="green" /> green
+                                        <input type="checkbox" name="yellow" /> yellow
+                                        <input type="checkbox" name="blue" /> blue   
+                                    </div>
+                                    <div class="form-group ">
+                                        
+                                        <div class=col-sm-6>
+                                                <h3>Materialen:</h3>
+                                        <input type="checkbox" name="fabric" /> stof
+                                        <input type="checkbox" name="leather" /> leer
+                                        <input type="checkbox" name="sixtyPercent" /> 60%
+                                        <input type="checkbox" name="seventyPercent" /> 70%  
+                                    </div>
+                                    <div class=col-sm-6>
+                                            <h3>Groottes:</h3>
+                                            <input type="checkbox" name="twoSeater" /> 2 zits
+                                            <input type="checkbox" name="twoHalfSeater" /> 2,5 zits
+                                            <input type="checkbox" name="threeSeater" /> 3 zits
+                                            <input type="checkbox" name="cornerCouch" /> hoekbank
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group ">
+                                            <h3>Extra tags:</h3>
+                                            <input type="checkbox" name="newArrival" /> Nieuw binnen
+                                            <input type="checkbox" name="bestSeller" /> Meest verkocht
+                                            
+                                        
+                                    </div>
+                                   
+
+
+                                        
+                                        <div class="form-group ">
+                                            <div class="row">
+                                                <div class="col-sm-6 justify-content-center  ">
+                                                    <input type="submit" name="uploadProduct" id="login-submit" tabindex="5" class="form-control btn btn-Done " value="Done">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<div class="col-sm-1 pull-right" id="Update_Destroy_Btn_Container">
+    <a href="/"> <button type="button" class="btn  btn-circle-sm" id="delete-Post_Btn"><i class="fas fa-trash-alt"></i></button></a>
+    <a href="#"> <button type="button" class="btn  btn-circle-sm" id="add-Post_Btn"><i class="fas fa-plus"></i></button></a>
+</div>
+
 
 
 
