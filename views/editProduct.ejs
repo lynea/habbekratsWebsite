@@ -1,85 +1,36 @@
 <% include ./partials/admin-Header %> 
-<% include ./partials/admin-filter %> 
 <script src="./scripts/posts.js"></script>
 <script src="./scripts/inventory.js"></script>
 <link rel="stylesheet" href="/stylesheets/inventory.css">
+<script src="/scripts/image_upload_btn.js"></script>
 
 
 
 
-<script>
-    $(document).ready(function() {
-        
-          $('#usedChecker').click(function() {
-            $(".usedContainer").toggle(this.checked);
-        });
-          $('#newChecker').click(function() {
-            $(".newContainer").toggle(this.checked);
-        });
-          $('.saleContainer').click(function() {
-            $(".sale").toggle(this.checked);
-        });
-          $('.newArrival').click(function() {
-            $(".newArrivalContainer").toggle(this.checked);
-        });
 
-    });
-
-        
-</script>
-
-
-
-
- <div class = "container newContainer">
-        <% products.forEach(function(product){ %>
-            <% if(product.newFurn){ %>
-                <div class="col-sm-3">
-                        <div class="hovereffect">
-                            <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
-                            <div class="image-overlay">
-                            <h2><%= product.subCat %> : <%= product.name %></h2>
-                               <div class="col-sm-6">    
-                               <form action="/inventory/<%= product._id %>?_method=DELETE" method="POST">
-                                <button><i class="fas fa-trash-alt info"></i></button>
-                               </form>
-                               </div>
-                               <div class="col-sm-6">
-                               <button><a href="/inventory/<%= product._id %>/edit"> <i class="fas fa-edit"></i></button></a>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-            <% } %>
-        <% }) %>
-    </div>
-    
-
-    <div class = "container usedContainer">
-            <% products.forEach(function(product){ %>
-                <% if(product.usedFurn){ %>
-                    <div class="col-sm-3">
-                            <div class="hovereffect">
-                                <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
-                                <div class="image-overlay">
-                                <h2><%= product.subCat %> : <%= product.name %></h2>
-                                   <div class="col-sm-6">    
-                                   <form action="/inventory/<%= product._id %>?_method=DELETE" method="POST">
-                                    <button><i class="fas fa-trash-alt info"></i></button>
-                                   </form>
-                                   </div>
-                                   <div class="col-sm-6">
-                                   <button><a href="/inventory/<%= product._id %>/edit"> <i class="fas fa-edit"></i></button></a>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                <% } %>
-            <% }) %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 pull-right">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
         </div>
+    </div>
+    <hr>
+</div>
 
 
-<div class="overlay">
+
+
+
+<div class="edit-overlay">
         <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="panel panel-login">
@@ -89,20 +40,20 @@
                                     <h3 class="form-title">Product toevoegen</h3>
                                 </div>
                                 <div class="col-sm-1 pull-right close-btn">
-                                    <i class="far fa-times-circle"></i>
+                                   <a href="/inventory">  <i class="far fa-times-circle"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="panel-body login-field">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="new-post-form" action="/inventory" method="POST" role="form" style="display: block;" enctype="multipart/form-data">
+                                    <form id="new-post-form" action="/inventory/<%= product._id %>?_method=PUT" method="POST"  role="form" style="display: block;" enctype="multipart/form-data">
                                         <div class="form-group " >
-                                            <input type="text" name="name" id="title" tabindex="1" class="form-control input-shadow" placeholder="Naam of Code"  >
+                                            <input type="text" name="name" id="title" tabindex="1" class="form-control input-shadow" value="<%=product.name%> "  >
                                             </div>
                                         <div class="form-group">
                                             <label for="description">Description:</label>
-                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="description"></textarea>
+                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="description"> <%=product.description%></textarea>
                                         </div>
                                         <div class="form-group"> 
                                             <h3>categorie</h3>
@@ -123,7 +74,7 @@
                                                 <input type="checkbox" name="new" /> Nieuw     
                                                 <input type="checkbox" name="used" /> Gebruikt     
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group ">
                                             <h3>kleuren:</h3>
                                                 <input type="checkbox" name="red" /> rood
                                                 <input type="checkbox" name="green" /> green

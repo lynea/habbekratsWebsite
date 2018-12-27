@@ -25,7 +25,7 @@ label{
     font-weight: 100
 }
 
-input[type="checkbox"], input[type="radio"]{
+.filter-row input[type="checkbox"], input[type="radio"]{
 	position: absolute;
 	right: 9000px;
 }

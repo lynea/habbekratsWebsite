@@ -17,6 +17,17 @@ var storage = multer.diskStorage({
    
   var upload = multer({ storage: storage });
 
+
+  var imgStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/uploads/products')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  });
+   
+  var imgUpload = multer({ storage: imgStorage });
  
 
 //============================
@@ -89,10 +100,11 @@ router.route('/inventory')
     }
 })
 
-.post(function(req, res){ 
+.post(imgUpload.single('image'),function(req, res){ 
     var usedFurn = Boolean(req.body.used); 
     var newFurn = Boolean(req.body.new); 
     var name = req.body.name; 
+    var mainImagePath = "uploads/products/"+ req.file.filename; 
     var bestSeller = Boolean(req.body.bestSeller); 
     var newArrival = Boolean(req.body.newArrival); 
     var description = req.body.description; 
@@ -114,14 +126,10 @@ router.route('/inventory')
 
     var category = req.body.category; 
     var subCat = req.body.subCat; 
-
-
-    
-
- 
   
     var newProduct = {
         name:name,
+        mainImagePath:mainImagePath, 
         description:description, 
         cat:category,
         subCat:subCat,
@@ -129,6 +137,7 @@ router.route('/inventory')
         bestSeller:bestSeller,
         usedFurn:usedFurn,
         newFurn:newFurn,
+
         colors:{
             red:red,
             blue:blue,
@@ -164,7 +173,48 @@ router.route('/inventory')
 });
 
 
+router.route('/inventory/:id')
+.delete(function(req, res){
+    Product.findById(req.params.id, function (err, newProduct) {
+        var path = "public/"+ newProduct.mainImagePath; 
+        try{ fs.unlinkSync(path)
+            //file removed
+          } catch(err) {
+            console.error(err)
+          }
+    }), 
+    Product.findByIdAndRemove(req.params.id,function(err){
+        if(err){
+            res.redirect("back");
+        }else{
+            res.redirect("/inventory");
+        }
+    })
+})
+router.get("/inventory/:id/edit" , function(req, res){
+    Product.findById(req.params.id, function(err, foundProduct){
+        res.render("editProduct", {product: foundProduct});
+    });
+}); 
 
+router.put("/inventory/:id", function(req, res){
+    // find and update the correct post
+    // not working for image yet 
+  
+    Product.findByIdAndUpdate(req.params.id, req.body.product, function(err, updatedPost){
+       if(err){
+           res.redirect("/admin");
+       } else {
+           //redirect somewhere(show page)
+           res.redirect("/inventory");
+       }
+    });
+});
+
+
+//=========================================================================================
+// routes for CRUD Posts 
+//=========================================================================================
 
 router.route('/posts')
 .get(require('permission')(['admin']), function(req, res, next) {
