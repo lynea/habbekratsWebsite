@@ -53,13 +53,27 @@
                                     <div class="form-group">
                                             <label for="description">Description:</label>
                                             <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="description"></textarea>
-                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                           
+                                                    <p><h3>categorie</h3></p>
+                                                    <select class="form-control">
+                                                      <option>test</option>
+                                                      <option>test 2</option>
+                                                      <% products.forEach(function(product){ %>
+                                                        <option><%= product.category %></option>
+                                                        <% }); %>
+                                                    </select>
+                                            
+                                    </div>
                                         <div class="form-group ">
                                                 conditie:
                                                 <input type="checkbox" name="new" /> Nieuw     
                                                 <input type="checkbox" name="used" /> Gebruikt     
                                            
                                         </div>
+
+
                                     
                                     <div class="form-group ">
                                         <h3>kleuren:</h3>
