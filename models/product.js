@@ -5,30 +5,33 @@ var mongoose = require('mongoose');
     name:  String,
     usedFurn:Boolean,
     newFurn:Boolean,
-    categories:{
-      couch:{
-        type:Boolean, 
-        subCat:{
-          bank:Boolean,
-          hoekbank:Boolean,
-        },
-      },
-      table:{
-        type:Boolean, 
-        subCat:{
-          salonTafel:Boolean,
-          eetTafel:Boolean,
-          hoekTafel:Boolean,
-        },
-      },
-      closet:{
-        type:Boolean, 
-        subCat:{
-          wandmeubel:Boolean,
-          vitrineKast:Boolean,
-        },
-      },
-    },
+    // categories:{
+    //   couch:{
+    //     type:Boolean, 
+    //     subCat:{
+    //       bank:Boolean,
+    //       hoekbank:Boolean,
+    //     },
+    //   },
+    //   table:{
+    //     type:Boolean, 
+    //     subCat:{
+    //       salonTafel:Boolean,
+    //       eetTafel:Boolean,
+    //       hoekTafel:Boolean,
+    //     },
+    //   },
+    //   closet:{
+    //     type:Boolean, 
+    //     subCat:{
+    //       wandmeubel:Boolean,
+    //       vitrineKast:Boolean,
+    //     },
+    //   },
+    // },
+
+    cat: String,
+    subCat: String, 
     mainImagePath: String,
     extraImagePath: String,
     description: String,

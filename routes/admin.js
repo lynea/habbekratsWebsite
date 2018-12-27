@@ -112,6 +112,9 @@ router.route('/inventory')
     var threeSeater = Boolean(req.body.threeSeater); 
     var cornerCouch = Boolean(req.body.cornerCouch); 
 
+    var category = req.body.category; 
+    var subCat = req.body.subCat; 
+
 
     
 
@@ -120,6 +123,8 @@ router.route('/inventory')
     var newProduct = {
         name:name,
         description:description, 
+        cat:category,
+        subCat:subCat,
         newArrival:newArrival, 
         bestSeller:bestSeller,
         usedFurn:usedFurn,
@@ -146,6 +151,7 @@ router.route('/inventory')
     }
    
     // Create a new post and save to DB
+   
     Product.create(newProduct, function(err, newlyCreated){
         if(err){
             console.log(err);
