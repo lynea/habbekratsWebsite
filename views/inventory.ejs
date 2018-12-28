@@ -11,34 +11,34 @@
     $(document).ready(function() {
         
           $('#usedChecker').click(function() {
-            $(".usedContainer").toggle(this.checked);
+            $(".usedFurn").toggle(this.checked);
         });
           $('#newChecker').click(function() {
-            $(".newContainer").toggle(this.checked);
+            $(".newFurn").toggle(this.checked);
         });
-          $('.saleContainer').click(function() {
-            $(".sale").toggle(this.checked);
+          $('#newArrivalChecker').click(function() {
+            $(".newArrival").toggle(this.checked);
         });
-          $('.newArrival').click(function() {
-            $(".newArrivalContainer").toggle(this.checked);
+          $('#bestSellerChecker').click(function() {
+            $(".bestSeller").toggle(this.checked);
         });
 
-    });
-
-        
+    });   
 </script>
 
 
 
 
- <div class = "container newContainer">
+ <div class = "container post-cards-container">
+        <hr>
         <% products.forEach(function(product){ %>
-            <% if(product.newFurn){ %>
-                <div class="col-sm-3">
+        
+              
+                <div class="col-sm-3 <% if(product.newArrival){ %> newArrival<% } %>  <% if(product.newFurn){ %> newFurn <% } %>  <% if(product.usedFurn){ %> usedFurn <% } %>  <% if(product.bestSeller){ %> bestSeller <% } %>">
                         <div class="hovereffect">
                             <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
                             <div class="image-overlay">
-                            <h2><%= product.subCat %> : <%= product.name %></h2>
+                            <span class=title><h2><%= product.subCat %> : <%= product.name %></h2></span>
                                <div class="col-sm-6">    
                                <form action="/inventory/<%= product._id %>?_method=DELETE" method="POST">
                                 <button><i class="fas fa-trash-alt info"></i></button>
@@ -50,33 +50,12 @@
                         </div>
                         </div>
                     </div>
-            <% } %>
+                    
+        
+
         <% }) %>
     </div>
     
-
-    <div class = "container usedContainer">
-            <% products.forEach(function(product){ %>
-                <% if(product.usedFurn){ %>
-                    <div class="col-sm-3">
-                            <div class="hovereffect">
-                                <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
-                                <div class="image-overlay">
-                                <h2><%= product.subCat %> : <%= product.name %></h2>
-                                   <div class="col-sm-6">    
-                                   <form action="/inventory/<%= product._id %>?_method=DELETE" method="POST">
-                                    <button><i class="fas fa-trash-alt info"></i></button>
-                                   </form>
-                                   </div>
-                                   <div class="col-sm-6">
-                                   <button><a href="/inventory/<%= product._id %>/edit"> <i class="fas fa-edit"></i></button></a>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                <% } %>
-            <% }) %>
-        </div>
 
 
 <div class="overlay">
