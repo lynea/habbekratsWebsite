@@ -1,6 +1,68 @@
+.img-holder {
+    width:100%;
+    height:300px;
+    background-size:cover; 
+    background-position:center center; 
+    background-repeat:no-repeat; 
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+#aanbiedingen-holder{
+    background-image:url('/img/aanbiedingen.jpg');
+}
+
+#nieuwBinnen-holder{
+    background-image:url('/img/nieuwBinnen.jpg');
+}
+#gebruikteMeubels-holder{
+    background-image:url('/img/gebruikte-meubels.jpg');
+}
+#nieuweMeubels-holder{
+    background-image:url('/img/nieuwe-meubels.jpg');
+}
+
+.web-Section-button-top {
+    margin-top: 20px;
+    height:55px;
+}
+.web-Section-button-bottom {
+   
+    margin-top:220px; 
+    height:55px;
+}
+
+i{
+    color: #EE5959;
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+.img-holder a {
+    font-weight: 580; 
+    font-size: 35px;
+    color: #030146;
+    font-family: 'Open Sans', sans-serif!important;
+   
+}
+
+button{
+    background: white; 
+    border:none; 
+    -webkit-box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+    box-shadow: 0px 3px 4px 3px rgba(0,0,0,0.16);
+}
+.row{
+    margin-bottom:30px; 
+}
+
+
 .hovereffect {
     width:100%;
-    height:40%;
+    height:170px;
     float:left;
     overflow:hidden;
     position:relative;
@@ -30,14 +92,37 @@
     position:relative;
     -webkit-transition:all .4s linear;
     transition:all .4s linear;
+    height: 100%;
+
     }
+    .hovereffect button {
+        background: #EE5959; 
+        margin-top: 10px;
+        height: 40px
+    }
+    .hovereffect i {
+        color: white; 
+        font-size: 15px;
+    }
+    .hovereffect a {
+        color: white; 
+        font-size: 23px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+    }
+    .hovereffect a:hover {
+        text-decoration: none;
+    }
+
+
     
     .hovereffect h2 {
     text-transform:uppercase;
     color:#fff;
     text-align:center;
     position:relative;
-    font-size:17px;
+    font-size:25px;
+    font-weight: 500;
     background:rgba(0,0,0,0.6);
     -webkit-transform:translatey(-100px);
     -ms-transform:translatey(-100px);
@@ -45,6 +130,7 @@
     -webkit-transition:all .2s ease-in-out;
     transition:all .2s ease-in-out;
     padding:10px;
+    margin-top: 50px;
     }
     
     .hovereffect a.info {
@@ -89,86 +175,9 @@
     -webkit-transition-delay:.2s;
     transition-delay:.2s;
     }
-    .hovereffect button{
-   background: none; 
-   border:none;
-    }
-    .hovereffect i{
-   color:white;
-   font-size: 20px;
-   margin-top: 30px;
-
-    }
-    /* .hovereffect button{
-
-   margin-left: 60px;
-    } */
-
-    
   
-   
-    
-    .slick-dots {
-        text-align: center;
-      margin: 0 0 10px 0;
-      padding: 0;
+
+    .post-cards-container{
+        margin-bottom: 200px;
     }
-      .slick-dots li {
-        display:inline-block;
-        margin-left: 4px;
-        margin-right: 4px;
-      }
-      .slick-active {
-        display:inline-block;
-        margin-left: 4px;
-        margin-right: 4px;
-        }
-        button {
-          font: 0/0 a;
-          text-shadow: none;
-          color: transparent;
-          background-color:#999;
-          border:none;
-          width: 15px;
-          height: 15px;
-          border-radius:50%;
-        }
-            button:hover{
-                background-color: black;
-            }
-      
-    
-    
-    /* Custom Arrow */
-    .prev{
-        color: #999;
-        position: absolute;
-        top: 38%;
-        left: -2em;
-        font-size: 1.5em;
-    }
-            .prev:hover{
-                cursor: pointer;
-                color: black;
-            }
-    
-    .next{
-        color: #999;
-        position: absolute;
-        top: 38%;
-        right: -2em;
-        font-size: 1.5em;
-    }.next:hover{
-                cursor: pointer;
-                color: black;
-            }
-    
-    
-    @media screen and (max-width: 800px) {
-        .next {
-            display: none !important;
-        }
-    }
-    
-    
-    
+ 

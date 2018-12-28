@@ -1,9 +1,70 @@
 <% include ./partials/header %> 
+<link rel="stylesheet" href="/stylesheets/landing.css">
 
 <div class="container">
-    <h1>landing page</h1>
+    <h1>Home</h1>
+    <div class="row">
+        
+        <div class="col-sm-5">
+            <div class="img-holder" id="aanbiedingen-holder">
+               <a href="#"> <button class=web-Section-button-top>Aanbiedingen <i class="fas fa-caret-right"></i></button></a>
+            </div>
+        </div>
+        <div class="col-sm-7">
+             <div class="img-holder"  id="nieuweMeubels-holder">
+                    <a href="#"> <button class=web-Section-button-top>Nieuwe meubels <i class="fas fa-caret-right"></i></button></a>
+             </div>
+        </div>
+   
 </div>
+    <div class="row">
+        <div class="col-sm-7">
+             <div class="img-holder"  id="gebruikteMeubels-holder">
+                    <a href="#"> <button class=web-Section-button-bottom>Gebruikte meubels <i class="fas fa-caret-right"></i></button></a>
+            </div>
+        </div>
+       
+        <div class="col-sm-5">
+            <div class="img-holder"  id="nieuwBinnen-holder">
+                    <a href="#"> <button class=web-Section-button-bottom>Nieuw binnen <i class="fas fa-caret-right"></i></button></a>
+            </div>
+        </div>
+    </div> 
 
 
 
+
+<div class="container">
+        <h1>Bestsellers</h1>
+          <div class="row">
+            <div class="col-md-12 heroSlider-fixed">
+              <div class="overlay">
+            </div>
+               <!-- Slider -->
+              <div class="slider responsive">
+                    <% bestSellers.forEach(function(product){ %>
+                        <div class="col-sm-3 card">
+                            <div class="hovereffect">
+                                <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
+                                <div class="image-overlay">
+                                <span class=title><h2><%= product.subCat %> : <%= product.name %></h2></span>
+                                 <button> <a href="/products/<%= product._id %>">Bekijk <i class="fas fa-caret-right"></i></a></button>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    <% }) %>      
+              </div>
+                       <!-- control arrows -->
+                      <div class="prev">
+                          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      </div>
+                      <div class="next">
+                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      </div>
+                      
+            </div>
+          </div>
+        </div>
 <% include ./partials/footer %> 
+
