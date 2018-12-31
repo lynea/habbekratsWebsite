@@ -35,14 +35,13 @@ var storage = multer.diskStorage({
 //============================
 
 router.get("/", function(req, res) {
-    Product.find({bestSeller:true}, function(err, allBestSellers){
-        if(err){
-            console.log(err);
-        } else {
-           res.render("landing",{bestSellers:allBestSellers});
-        }
-     });
-});
+    Promise.all([
+        Product.find({bestSeller:true}),
+        Product.find({newArrival:true}),
+    ]).then( ([ allBestSellers, allNewArrivals ]) => {
+        res.render("landing",{bestSellers:allBestSellers, newArrivals:allNewArrivals});
+      })
+}); 
 
 router.get("/register", function(req, res) {
     res.render("register");
