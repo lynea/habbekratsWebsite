@@ -1,4 +1,5 @@
 <% include ./partials/header %> 
+<% include ./partials/menu %> 
 <link rel="stylesheet" href="/stylesheets/landing.css">
 
 <div class="container">
@@ -44,7 +45,7 @@
                         <div class="hovereffect">
                             <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
                             <div class="image-overlay">
-                            <span class=title><h2><%= product.subCat %> : <%= product.name %></h2></span>
+                            <span class=title><h2><%= product.name %></h2></span>
                             <button> <a href="/products/<%= product._id %>">Bekijk <i class="fas fa-caret-right"></i></a></button>
                             </div>
                         </div>
@@ -62,6 +63,8 @@
     </div>
 </div>
 
+<hr>
+
 <div class="container">
     <h1>Nieuw Binnen</h1>
     <div class="row">
@@ -69,13 +72,13 @@
             <div class="overlay">
             </div>
                <!-- Slider -->
-            <div class="slider responsive">
+            <div class="slider nieuwBinnenSlider">
                 <% newArrivals.forEach(function(product){ %>
                     <div class="col-sm-3 card">
                         <div class="hovereffect">
                             <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
                             <div class="image-overlay">
-                            <span class=title><h2><%= product.subCat %> : <%= product.name %></h2></span>
+                            <span class=title><h2><%= product.name %></h2></span>
                             <button> <a href="/products/<%= product._id %>">Bekijk <i class="fas fa-caret-right"></i></a></button>
                             </div>
                         </div>
@@ -83,15 +86,41 @@
                 <% }) %>      
             </div>
             <!-- control arrows -->
-            <div class="prev">
+            <div class="NB-prev">
                 <button type="button" class="btn  btn-circle absoluteLeft"><i class="glyphicon glyphicon-arrow-left"></i></button>
             </div>
-            <div class="next">
+            <div class="NB-next">
                 <button type="button" class="btn  btn-circle absoluteRight" ><i class="glyphicon glyphicon-arrow-right"></i></button>
             </div>     
         </div>
     </div>
 </div>
+
+<hr>
+
+<div class="container">
+<div class="jumbotron jumbotron-fluid">
+    
+        
+  <h1 class="display-4">Uw oude meubels inruilen?</h1>
+    <a class="btn jumbo-btn btn-lg" href="#" role="button">Inruil Checker</a>
+  </p>
+
+</div>
+
+
+<div class="container over-ons">
+    <h1>Over ons</h1>
+    <p>Binnen onze showroom van ruim 1000 vierkante meter vind u een ruim aanbod aan nieuwe en grbruikte meubelen.
+         Al ruim 35 jaar maken wij mensen blij met onze service en expertise. 
+         Binnen onze showroom van ruim 1000 vierkante meter vind u een ruim aanbod aan nieuwe en grbruikte meubelen. 
+         Al ruim 35 jaar maken wij mensen blij met onze service en expertiseBinnen onze showroom van ruim 1000 vierkante meter vind u een ruim aanbod
+        aan nieuwe en grbruikte meubelen. Al ruim 35 jaar maken wij mensen blij met onze service en expertise</p>
+        <div class="col-sm-12 map">
+                <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="386" id="gmap_canvas" src="https://maps.google.com/maps?q=ambachtstraat%2010&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;height:386px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:386px;width:100%px;}</style></div>
+        </div>
+</div>
+
 
 
 

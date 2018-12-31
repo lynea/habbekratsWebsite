@@ -215,3 +215,52 @@ button{
         margin-bottom: 200px;
     }
  
+    .jumbotron{
+        text-align: center;
+        background: url("/img/inruilen.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+    }
+    
+    .jumbo-overlay{
+        position: relative; /* Sit on top of the page content */
+      
+        width: 100%; /* Full width (cover the whole page) */
+        height: 100%; /* Full height (cover the whole page) */
+        top: 0; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer; /* Add a pointer on hover */
+    }
+
+    .jumbo-btn{
+        background: #EE5959;
+        width: 500px;
+        padding: 10px 0px 10px 0px;
+        margin-top: 40px;
+    }
+    .jumbotron a{
+        color: white; 
+        font-size: 50px;
+    }
+    .jumbotron h1{
+        color: white; 
+        font-size: 80px;
+    }
+
+    .map{
+        padding: 0 0 0 0;
+    }
+
+    .over-ons{
+        text-align: center;
+    }
+
+    h1{
+        color: #030146;
+        font-weight: 600;
+    }
