@@ -19,55 +19,81 @@
                   <li class="dropdown mega-dropdown">
                         <a href="#" class="dropdown-toggle nav-main-text" data-toggle="dropdown">Collectie <span class="caret"></span></a>		
                       <ul class="dropdown-menu mega-dropdown-menu">
-                          <li class="col-sm-3">
+                          <li class="col-sm-3 main-options">
                               <ul>
                                   <span class="hover-link">
-                                  <li><a href="#">Banken en bankstellen</a></li>
-                                  <li><a href="#">Stoelen & fauteuils</a></li>
-                                  <li><a href="#">Tafels</a></li>
-                                  <li><a href="#">Kasten</a></li>
+                                  <li id="banken-Bankstellen"><button><a href="#">Banken & bankstellen</a></button></li>
+                                  <li id="stoelen-fauteuils"><button><a href="#">Stoelen & fauteuils</a></button></li>
+                                  <li id="tafels"><button><a href="#">Tafels</a></button></li>
+                                  <li id="kasten"><button><a href="#">kasten</a></button></li>
+                                
                                   <li class="divider"></li>
-                                  <li><a href="#">Complete collectie </a></li>
+                                  <li id="complete-collectie"><button><a href="#">Complete collectie</a></button></li>
                                 </span>
                               </ul>
                           </li>
-                          <li class="col-sm-3">
-                              <ul>
+                          <div class="subcat-container col-sm-9">
+                          <li class="col-sm-6">
+                              <ul id="sub-Cat ">
+                                <span id="banken-Bankstellen-SubCats" class="subCats">
                                   <li class="dropdown-header">Banken & bankstellen</li>
                                   <li><a href="#">Banken</a></li>
-                                  <li><a href="#">Bankstellen</a></li>
-                                						
+                                  <li><a href="#">Bankstellen</a></li>		
+                                  <li class="divider"></li>
+                                  <li><a href="#">Alle banken</a></li>
+                                </span>
+
+                                <span id="stoelen-fauteuils-SubCats" class="subCats">
+                                  <li class="dropdown-header">Stoelen & fauteuils</li>
+                                  <li><a href="#">stoelen</a></li>
+                                  <li><a href="#">Fauteuils</a></li>
+                                </span>
+
+                                <span id="tafels-SubCats" class="subCats">
+                                  <li class="dropdown-header">Tafels</li>
+                                  <li><a href="#">Salon tafels</a></li>
+                                  <li><a href="#">Eetkamer tafels</a></li>
+                                  <li><a href="#">Bijzettafels</a></li>
+                                  <li><a href="#">Side Tables</a></li>
+                                </span>
+
+                                <span id="kasten-SubCats" class="subCats">
+                                  <li class="dropdown-header">kasten</li>
+                                  <li><a href="#">Boekenkasten</a></li>
+                                  <li><a href="#">Tv-kasten</a></li>
+                                  <li><a href="#">Dressoirs</a></li>
+                                  <li><a href="#">Buffetkasten</a></li>
+                                </span>
                               </ul>
+                         
+                              
+
+
+
                           </li>
-                          <li class="col-sm-3">
-                              <ul>
-                                  <li class="dropdown-header">Banken</li>
-                                                      
-                              </ul>
-                          </li>
-                          <li class="col-sm-3">
-                              <ul>
+                      
+                          
+                          <li class="col-sm-6">
+                              
                                                             
                                   <div id="womenCollection" class="carousel slide" data-ride="carousel">
                                     
                                       <div class="item active">
-                                          <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                                                                                
-                                           
+                                          <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>                             
                                       </div><!-- End Item -->
                                       
                                   </div><!-- /.carousel -->
                                 
-                                  
-                              </ul>
+                              
                           </li>
+                        </div>
                       </ul>				
                   </li>
                   <li class="nav-main-text"><a href="#">Inspiratie</a></li>
                   <li class="nav-main-text"><a href="#">Inruilen</a></li>
                   <li class="nav-main-text"><a href="#">Nieuw Binnen</a></li>
               </ul>
-              <div class="col-sm-4 pull-right">
+              <!-- <div class="col-sm-4 pull-right">
                     <div id="imaginary_container"> 
                         <div class="input-group stylish-input-group">
                             <input type="text" class="form-control " id="searchText" placeholder="Search" >
@@ -78,7 +104,7 @@
                             </span>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </ul>
           </div><!-- /.nav-collapse -->
         </nav>

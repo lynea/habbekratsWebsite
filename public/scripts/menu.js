@@ -11,4 +11,45 @@ $(document).ready(function(){
     );
 
 
+
+    // loop door allemaal heen 
+        // clear ul 
+        // remove active class 
+        // add active 
+        // show subcats 
+    
+    $('#banken-Bankstellen').hover(function(){
+       $(this).addClass("active");
+       $(".subCats").hide();  
+        $("#banken-Bankstellen-SubCats").show();  
+    });
+
+
+    $('#stoelen-fauteuils').hover(function(){
+       $(this).addClass("active");
+        $(".subCats").hide();  
+        $("#stoelen-fauteuils-SubCats").show();  
+    });
+
+    $('#tafels').hover(function(){
+       $(this).addClass("active");
+        $(".subCats").hide();  
+        $("#tafels-SubCats").show();  
+    });
+
+    $('#kasten').hover(function(){
+       $(this).addClass("active");
+        $(".subCats").hide();  
+        $("#kasten-SubCats").show();  
+    });
+
+    $('#complete-collectie').hover(function(){
+        $(this).addClass("active");
+         $(".subCats").hide();  
+          
+     });
+ 
+
+
+
 });
