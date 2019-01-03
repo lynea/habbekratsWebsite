@@ -79,6 +79,11 @@ body {
  
      
     }
+    .hover-link button a{
+     padding-left: 10px;
+ 
+     
+    }
 
 
 
@@ -108,6 +113,10 @@ body {
 
     .subCats{
       display: none;
+    }
+
+    #menu-img{
+      max-height: 280px;
     }
 .navbar-collapse{
   padding-right: 0; 

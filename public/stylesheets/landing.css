@@ -254,12 +254,15 @@ button{
 
     .map{
         padding: 0 0 0 0;
+        margin-top: 40px;
     }
 
     .over-ons{
         text-align: center;
     }
-
+    .over-ons h1{
+        margin-bottom:20px; 
+    }
     h1{
         color: #030146;
         font-weight: 600;

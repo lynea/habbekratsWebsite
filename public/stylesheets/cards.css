@@ -51,6 +51,7 @@
     }
     .post-cards-container{
         margin-top: 25px; 
+        min-height: 700px;
     }
     .cover {
         object-fit: cover;

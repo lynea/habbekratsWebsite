@@ -22,6 +22,7 @@ $(document).ready(function(){
        $(this).addClass("active");
        $(".subCats").hide();  
         $("#banken-Bankstellen-SubCats").show();  
+        $("#menu-img").attr('src', "/img/couch.jpg")
     });
 
 
@@ -29,18 +30,21 @@ $(document).ready(function(){
        $(this).addClass("active");
         $(".subCats").hide();  
         $("#stoelen-fauteuils-SubCats").show();  
+        $("#menu-img").attr('src', "/img/fauteuil.jpg")
     });
 
     $('#tafels').hover(function(){
        $(this).addClass("active");
         $(".subCats").hide();  
         $("#tafels-SubCats").show();  
+        $("#menu-img").attr('src', "/img/tafel.jpg")
     });
 
     $('#kasten').hover(function(){
        $(this).addClass("active");
         $(".subCats").hide();  
         $("#kasten-SubCats").show();  
+        $("#menu-img").attr('src', "/img/kast.jpg")
     });
 
     $('#complete-collectie').hover(function(){
