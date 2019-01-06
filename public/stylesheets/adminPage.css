@@ -42,8 +42,8 @@
 
 #Update_Destroy_Btn_Container{
     z-index: 2; 
-    position: sticky; 
-    top: 150px; 
+    position: absolute; 
+    top: 250px; 
     right:0px;
 }
 
