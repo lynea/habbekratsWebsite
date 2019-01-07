@@ -16,7 +16,7 @@ var express             = require("express"),
     
    //requiring routes
     var adminRoutes    = require("./routes/admin");
-
+    var frontRoutes =   require("./routes/front-Routes");
     //middleware req
   
 

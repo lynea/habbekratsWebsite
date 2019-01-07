@@ -1,0 +1,81 @@
+<% include ./partials/header %> 
+<% include ./partials/menu %> 
+
+<script src="./scripts/inventory.js"></script>
+
+<link rel="stylesheet" href="/stylesheets/landing.css">
+
+
+
+
+<script>
+    $(document).ready(function() {
+        
+          $('#usedChecker').click(function() {
+            $(".usedFurn").toggle(this.checked);
+        });
+          $('#newChecker').click(function() {
+            $(".newFurn").toggle(this.checked);
+        });
+          $('#newArrivalChecker').click(function() {
+            $(".newArrival").toggle(this.checked);
+        });
+          $('#bestSellerChecker').click(function() {
+            $(".bestSeller").toggle(this.checked);
+        });
+
+    });   
+</script>
+
+
+<div class="container">
+    <hr>
+    <h2 class="crumbPath">Niew binnen</h2>
+    <hr>
+    <h5 class="show-Url">url/here</h5>
+</div>
+
+
+<div class="container product-container">
+     
+        <div class="row">
+            <div class="col-md-12">
+                <div class="overlay">
+                </div>
+                   <!-- Slider -->
+                
+                    <% products.forEach(function(product){ %>
+                        <% if(product.newArrival){ %>
+                        <div class="col-sm-3 card">
+                            <div class="hovereffect">
+                                <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
+                                <div class="image-overlay">
+                                <span class=title><h2><%= product.name %></h2></span>
+                                <button> <a href="/products/<%= product._id %>">Bekijk <i class="fas fa-caret-right"></i></a></button>
+                                </div>
+                            </div>
+                        </div>  
+                        <%}%>   
+                    <% }) %>      
+               
+                    
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ./partials/footer %> 

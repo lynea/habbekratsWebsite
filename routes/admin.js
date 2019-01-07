@@ -298,6 +298,18 @@ router.put("/posts/:id", function(req, res){
 });
 
 
+// front-end routes
+
+router.get("/nieuw-binnen", function(req, res){
+    Product.find({}, function(err, allProducts){
+        if(err){
+            console.log(err);
+        } else {
+           res.render("nieuwBinnen",{products:allProducts});
+        }
+
+    });
+}); 
 
 
  

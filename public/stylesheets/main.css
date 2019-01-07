@@ -1,7 +1,22 @@
 body{font-family: 'Open Sans', sans-serif;}
 
+.crumbPath{
+  color: #EE5959;
+  font-weight: 500; 
+  margin-top: 7px;
+}
 
+.show-Url{
+  color: #030146; 
+  font-weight: 800;
+}
 
+hr{
+  margin-bottom: 0px;
+}
+.product-container{
+  margin-bottom: 250px;
+}
 
 h6{
     font-size: 25px;

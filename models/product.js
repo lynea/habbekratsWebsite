@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
     newFurn:Boolean,
     cat: String,
     subCat: String, 
-    mainImagePath: String,
+    mainImagePath: String, 
     extraImagePath: String,
     description: String,
     materials:{
