@@ -300,6 +300,8 @@ router.put("/posts/:id", function(req, res){
 
 // front-end routes
 
+
+// must add fiter in back end instead of front 
 router.get("/nieuw-binnen", function(req, res){
     Product.find({}, function(err, allProducts){
         if(err){
@@ -307,9 +309,20 @@ router.get("/nieuw-binnen", function(req, res){
         } else {
            res.render("nieuwBinnen",{products:allProducts});
         }
-
     });
 }); 
+
+router.get("/products/:id" , function(req, res){
+    Product.findById(req.params.id, function(err, foundProduct){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("show", {product: foundProduct});
+        }
+        
+    });
+}); 
+
 
 
  

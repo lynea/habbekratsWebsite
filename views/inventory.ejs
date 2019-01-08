@@ -31,10 +31,11 @@
 
  <div class = "container post-cards-container">
         <hr>
+        <div class="row">
         <% products.forEach(function(product){ %>
         
               
-                <div class="col-sm-3 <% if(product.newArrival){ %> newArrival<% } %>  <% if(product.newFurn){ %> newFurn <% } %>  <% if(product.usedFurn){ %> usedFurn <% } %>  <% if(product.bestSeller){ %> bestSeller <% } %>">
+                <div class="col-sm-3 float-left<% if(product.newArrival){ %> newArrival<% } %>  <% if(product.newFurn){ %> newFurn <% } %>  <% if(product.usedFurn){ %> usedFurn <% } %>  <% if(product.bestSeller){ %> bestSeller <% } %>">
                         <div class="hovereffect">
                             <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
                             <div class="image-overlay">
@@ -50,10 +51,13 @@
                         </div>
                         </div>
                     </div>
+
                     
         
 
         <% }) %>
+    </div>
+
     </div>
     
 
