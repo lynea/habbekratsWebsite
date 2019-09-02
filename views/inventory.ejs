@@ -35,7 +35,7 @@
         <% products.forEach(function(product){ %>
         
               
-                <div class="col-sm-3 float-left<% if(product.newArrival){ %> newArrival<% } %>  <% if(product.newFurn){ %> newFurn <% } %>  <% if(product.usedFurn){ %> usedFurn <% } %>  <% if(product.bestSeller){ %> bestSeller <% } %>">
+                <div class="col-sm-3 products float-left<% if(product.newArrival){ %> newArrival<% } %>  <% if(product.newFurn){ %> newFurn <% } %>  <% if(product.usedFurn){ %> usedFurn <% } %>  <% if(product.bestSeller){ %> bestSeller <% } %>">
                         <div class="hovereffect">
                             <img class="img-responsive" src="<%= product.mainImagePath %>" alt="">
                             <div class="image-overlay">
