@@ -1,8 +1,8 @@
-$(document).ready(function(){
-  $('.responsive').slick({
+$(document).ready(function() {
+  $(".responsive").slick({
     dots: false,
-    prevArrow: $('.prev'),
-    nextArrow: $('.next'),
+    prevArrow: $(".prev"),
+    nextArrow: $(".next"),
     infinite: true,
     speed: 300,
     slidesToShow: 4,
@@ -37,10 +37,10 @@ $(document).ready(function(){
     ]
   });
 
-  $('.nieuwBinnenSlider').slick({
+  $(".nieuwBinnenSlider").slick({
     dots: false,
-    prevArrow: $('.NB-prev'),
-    nextArrow: $('.NB-next'),
+    prevArrow: $(".NB-prev"),
+    nextArrow: $(".NB-next"),
     infinite: true,
     speed: 300,
     slidesToShow: 4,
@@ -74,5 +74,4 @@ $(document).ready(function(){
       // instead of a settings object
     ]
   });
-
-  });
+});

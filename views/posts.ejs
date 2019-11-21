@@ -1,16 +1,16 @@
-<% include ./partials/admin-Header %> 
+<% include ./partials/admin-Header %>
 <script src="./scripts/posts.js"></script>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-4 pull-right">
-            <div id="imaginary_container"> 
+            <div id="imaginary_container">
                 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search" >
+                    <input type="text" class="form-control" placeholder="Search">
                     <span class="input-group-addon">
                         <button type="submit">
                             <span class="glyphicon glyphicon-search"></span>
-                        </button>  
+                        </button>
                     </span>
                 </div>
             </div>
@@ -22,95 +22,101 @@
 
 
 <div class="container post-cards-container">
-    
-        <% posts.forEach(function(post){ %>
-            <div class="col-md-4 card-colums">
-                <div class="card-container" >
-                    <figure class="img-container">
-                        <img src="<%= post.imagePath %>" width="242" height="363" class="cover" />
-                    </figure>
-                    <div class="text-post-card">
-                        <div class="post-card-title">
-                        <a href="/posts/<%= post._id %>"><h3><%= post.title %></h3></a>
-                        
-                    </div>
-                        <p>gepubliceert op:<%= post.creationDate %></p>
-                    </div>
-                    <div class="post-card-btn-container">
-                    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                        <button><i class="fas fa-trash-alt"></i></button>
-                       </form>
-                       
-                        <button><a href="/posts/<%= post._id %>/edit"> <i class="fas fa-edit"></i></button></a>
-                       
-                       
-                        
-                    
-                    </div>
+
+    <% posts.forEach(function(post){ %>
+    <div class="col-md-4 card-colums">
+        <div class="card-container">
+            <figure class="img-container">
+                <img src="<%= post.imagePath %>" width="242" height="363" class="cover" />
+            </figure>
+            <div class="text-post-card">
+                <div class="post-card-title">
+                    <a href="/posts/<%= post._id %>">
+                        <h3><%= post.title %></h3>
+                    </a>
+
                 </div>
-            </div>       
-        <% }); %>
-   
+                <p>gepubliceert op:<%= post.creationDate %></p>
+            </div>
+            <div class="post-card-btn-container">
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                    <button><i class="fas fa-trash-alt"></i></button>
+                </form>
+
+                <button><a href="/posts/<%= post._id %>/edit"> <i class="fas fa-edit"></i></button></a>
 
 
-              
-                
 
-<div class="overlay">
+
+            </div>
+        </div>
+    </div>
+    <% }); %>
+
+
+
+
+
+
+    <div class="overlay">
         <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="panel panel-login">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <h3 class="form-title">Nieuwe post</h3>
-                                </div>
-                                <div class="col-sm-1 pull-right close-btn">
-                                    <i class="far fa-times-circle"></i>
-                                </div>
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h3 class="form-title">Nieuwe post</h3>
+                            </div>
+                            <div class="col-sm-1 pull-right close-btn">
+                                <i class="far fa-times-circle"></i>
                             </div>
                         </div>
-                        <div class="panel-body login-field">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form id="new-post-form" action="/posts" method="POST" role="form" style="display: block;" enctype="multipart/form-data">
-                                        <div class="form-group " >
+                    </div>
+                    <div class="panel-body login-field">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form id="new-post-form" action="/posts" method="POST" role="form"
+                                    style="display: block;" enctype="multipart/form-data">
+                                    <div class="form-group ">
                                         <label for="title">Titel:</label>
-                                        <input type="text" name="title" id="title" tabindex="1" class="form-control input-shadow"  >
+                                        <input type="text" name="title" id="title" tabindex="1"
+                                            class="form-control input-shadow">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="summary">Inleiding:</label>
+                                        <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary"
+                                            name="summary"></textarea>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="text">Text:</label>
+                                        <textarea class="form-control input-shadow" rows="5" tabindex="3" id="text"
+                                            name="body"></textarea>
+                                    </div>
+                                    <div class="col-md-6 upload_Btn">
                                         <div class="form-group">
-                                            <label for="summary">Inleiding:</label>
-                                            <textarea class="form-control input-shadow" rows="4" tabindex="2" id="summary" name="summary"></textarea>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="text">Text:</label>
-                                            <textarea class="form-control input-shadow" rows="5" tabindex="3" id="text" name="body"></textarea>
-                                        </div>
-                                        <div class="col-md-6 upload_Btn">
-                                            <div class="form-group">
-                                                <label>Upload Image</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                        <span class="btn btn-default btn-file">
-                                                            Browse… <input type="file" tabindex="4" id="imgInp" name="image">
-                                                        </span>
+                                            <label>Upload Image</label>
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <span class="btn btn-default btn-file">
+                                                        Browse… <input type="file" tabindex="4" id="imgInp"
+                                                            name="image">
                                                     </span>
-                                                    <input type="text" class="form-control" readonly>
-                                                </div>
-                                                <img id='img-upload'/>
+                                                </span>
+                                                <input type="text" class="form-control" readonly>
+                                            </div>
+                                            <img id='img-upload' />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="row">
+                                            <div class="col-sm-6 justify-content-center  ">
+                                                <input type="submit" name="upload_Post" id="login-submit" tabindex="5"
+                                                    class="form-control btn btn-Done " value="Done">
                                             </div>
                                         </div>
-                                        <div class="form-group ">
-                                            <div class="row">
-                                                <div class="col-sm-6 justify-content-center  ">
-                                                    <input type="submit" name="upload_Post" id="login-submit" tabindex="5" class="form-control btn btn-Done " value="Done">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
 
-                                    </form>
-                                </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -118,13 +124,17 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+</div>
+</div>
 
 
 <div class="col-sm-1 pull-right" id="Update_Destroy_Btn_Container">
-    <a href="/"> <button type="button" class="btn  btn-circle-sm" id="delete-Post_Btn"><i class="fas fa-trash-alt"></i></button></a>
-    <a href="#"> <button type="button" class="btn  btn-circle-sm" id="add-Post_Btn"><i class="fas fa-plus"></i></button></a>
+    <a href="/"> <button type="button" class="btn  btn-circle-sm" id="delete-Post_Btn"><i
+                class="fas fa-trash-alt"></i></button></a>
+    <a href="#"> <button type="button" class="btn  btn-circle-sm" id="add-Post_Btn"><i
+                class="fas fa-plus"></i></button></a>
 </div>
 
 <% include ./partials/admin-sideBar %>
-<% include ./partials/footer %> 
+<% include ./partials/footer %>
